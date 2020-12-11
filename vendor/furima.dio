@@ -1,0 +1,48 @@
+<mxfile host="65bd71144e" modified="2020-12-11T02:01:05.794Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.10.0" etag="SWlhh2pJIzo1Wa9bqKXa" type="embed">
+    <diagram id="d6mJrMQ309lOfsOt9yPk" name="ページ1">
+        <mxGraphModel dx="672" dy="635" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" value="Users" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry y="80" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.011;entryY=0.378;entryDx=0;entryDy=0;entryPerimeter=0;horizontal=1;fontSize=11;endArrow=ERmany;endFill=0;strokeWidth=1;endSize=10;startArrow=ERone;startFill=0;" edge="1" parent="1" source="9" target="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="420" y="175"/>
+                            <mxPoint x="420" y="175"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=ERone;endFill=0;endSize=10;strokeWidth=1;startArrow=ERone;startFill=0;" edge="1" parent="1" source="9" target="14">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=ERone;endFill=0;endSize=10;strokeWidth=1;startArrow=ERone;startFill=0;" edge="1" parent="1" source="9" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="nickname&lt;br&gt;email&lt;br&gt;password&lt;br&gt;family_name&lt;br&gt;first_name&lt;br&gt;family_name_kana&lt;br&gt;first_name_kana&lt;br&gt;birthday" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry y="110" width="180" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Items" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="80" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="title&lt;br&gt;image&lt;br&gt;price&lt;br&gt;exhibitor&lt;br&gt;category&lt;br&gt;condition&lt;br&gt;shipping&lt;br&gt;send_out&lt;br&gt;community&lt;br&gt;explanation&lt;br&gt;user_id" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="110" width="190" height="172" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Card" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry y="401" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="infomation&lt;br&gt;expiration_date&lt;br&gt;security&lt;br&gt;user_id" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry y="430" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Address" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="400" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="postal_code&lt;br&gt;prefectures&lt;br&gt;city&lt;br&gt;house_number&lt;br&gt;building&lt;br&gt;phone_number&lt;br&gt;user_id" style="whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="430" width="180" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
