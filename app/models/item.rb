@@ -20,11 +20,12 @@ class Item < ApplicationRecord
     validates :explanation
   end
 
-    validates :price, presence: true, format: {with: /\A[0-9a-zA-Z]+\z/i }, numericality: { only_integer: true,greater_than: 300, less_than: 9999999}
+  validates :price, presence: true, format: { with: /\A[0-9a-zA-Z]+\z/i },
+                    numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
 
-    validates :category_id, numericality: { other_than: 1 }
-    validates :condition_id, numericality: { other_than: 1 }
-    validates :shipping_id, numericality: { other_than: 1 }
-    validates :send_out_id, numericality: { other_than: 1 }
-    validates :community_id, numericality: { other_than: 1 }
+  validates :category_id, numericality: { other_than: 1 }
+  validates :condition_id, numericality: { other_than: 1 }
+  validates :shipping_id, numericality: { other_than: 1 }
+  validates :send_out_id, numericality: { other_than: 1 }
+  validates :community_id, numericality: { other_than: 1 }
 end
