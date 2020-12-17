@@ -35,7 +35,7 @@ describe Item do
       it 'カテゴリーの情報が1が選択されていたら登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it '商品の状態についての情報が空では登録できない' do
         @item.condition_id = nil
@@ -45,7 +45,7 @@ describe Item do
       it '商品の状態についての情報が1が選択されていたら登録できない' do
         @item.condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
       it '配送料の負担についての情報が空では登録できない' do
         @item.shipping_id = nil
@@ -55,7 +55,7 @@ describe Item do
       it '配送料の負担についての情報が1が選択されていたら登録できない' do
         @item.shipping_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping must be other than 1')
       end
       it '発送元の地域についての情報が空では登録できない' do
         @item.community_id = nil
@@ -65,7 +65,7 @@ describe Item do
       it '発送元の地域についての情報が1が選択されていたら登録できない' do
         @item.community_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Community must be other than 1")
+        expect(@item.errors.full_messages).to include('Community must be other than 1')
       end
       it '発送までの日数についての情報が空では登録できない' do
         @item.send_out_id = nil
@@ -75,7 +75,7 @@ describe Item do
       it '発送までの日数についての情報が1が選択されていたら登録できない' do
         @item.send_out_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Send out must be other than 1")
+        expect(@item.errors.full_messages).to include('Send out must be other than 1')
       end
       it '価格についての情報が空では登録できない' do
         @item.price = nil
@@ -90,7 +90,7 @@ describe Item do
       it '価格が¥10,000,000円以上では登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include('Price must be less than 9999999')
       end
       it '販売価格は半角数字でなければ登録できない' do
         @item.price = '１０００'
