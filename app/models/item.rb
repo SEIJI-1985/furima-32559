@@ -20,7 +20,7 @@ class Item < ApplicationRecord
     validates :explanation
   end
 
-  validates :price, presence: true, format: { with: /\A[0-9a-zA-Z]+\z/i },
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/i },
                     numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
   
   with_options numericality: { other_than: 1 } do
