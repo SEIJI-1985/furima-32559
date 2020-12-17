@@ -22,10 +22,12 @@ class Item < ApplicationRecord
 
   validates :price, presence: true, format: { with: /\A[0-9a-zA-Z]+\z/i },
                     numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
-
-  validates :category_id, numericality: { other_than: 1 }
-  validates :condition_id, numericality: { other_than: 1 }
-  validates :shipping_id, numericality: { other_than: 1 }
-  validates :send_out_id, numericality: { other_than: 1 }
-  validates :community_id, numericality: { other_than: 1 }
+  
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :condition_id
+    validates :shipping_id
+    validates :send_out_id
+    validates :community_id
+  end
 end
