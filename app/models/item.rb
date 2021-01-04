@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :send_out
 
   belongs_to :user
+  has_one :history
   has_one_attached :image
 
   with_options presence: true do
