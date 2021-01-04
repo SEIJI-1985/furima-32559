@@ -1,23 +1,52 @@
 class DestinationsController < ApplicationController
-   def index
-      @item = Item.find(params[:item_id])
-      @user_buy = UserBuy.new
-   end
+  before_action :authenticate_user!, except: [:show]
+  before_action :move_to_index, except: [:show]
+  before_action :sold_to_index, except: [:show]
+  before_action :set_item, only: [:index, :create]
 
-   def create
-    @item = Item.find(params[:item_id])
+  def index
+    @user_buy = UserBuy.new
+  end
+
+  def create
     @user_buy = UserBuy.new(user_buy_params)
     if @user_buy.valid?
-        @user_buy.save
-        redirect_to root_path
+      pay_item
+      @user_buy.save
+      redirect_to root_path
     else
-        render action: :index
+      render item_destinations_path
     end
-   end
+  end
 
-   private
+  private
 
-   def user_buy_params
-    params.require(:user_buy).permit(:postal_code, :prefecture_id, :city, :house_number, :building, :phone_number).merge(user_id: current_user.id).merge(item_id: current_user.id)
-   end
+  def user_buy_params
+    params.require(:user_buy).permit(:postal_code, :prefecture_id, :city, :house_number, :building, :phone_number).merge(
+      user_id: current_user.id, item_id: params[:item_id], token: params[:token]
+    )
+  end
+
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: user_buy_params[:token],
+      currency: 'jpy'
+    )
+  end
+
+  def move_to_index
+    @item = Item.find(params[:item_id])
+    redirect_to root_path if user_signed_in? && @item.history.present?
+  end
+
+  def sold_to_index
+    @item = Item.find(params[:item_id])
+    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 end
