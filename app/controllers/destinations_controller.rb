@@ -15,7 +15,7 @@ class DestinationsController < ApplicationController
       @user_buy.save
       redirect_to root_path
     else
-      render item_destinations_path
+      render :index
     end
   end
 
