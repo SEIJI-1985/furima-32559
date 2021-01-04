@@ -71,6 +71,16 @@ describe UserBuy do
         @user_buy.valid?
         expect(@user_buy.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空だと保存できない' do
+        @user_buy.user_id = nil
+        @user_buy.valid?
+        expect(@user_buy.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空だと保存できない' do
+        @user_buy.item_id = nil
+        @user_buy.valid?
+        expect(@user_buy.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end

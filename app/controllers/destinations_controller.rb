@@ -1,8 +1,9 @@
 class DestinationsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
+  before_action :set_item, only: [:index, :create]
   before_action :move_to_index, except: [:show]
   before_action :sold_to_index, except: [:show]
-  before_action :set_item, only: [:index, :create]
+  
 
   def index
     @user_buy = UserBuy.new
@@ -37,12 +38,10 @@ class DestinationsController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:item_id])
     redirect_to root_path if user_signed_in? && @item.history.present?
   end
 
   def sold_to_index
-    @item = Item.find(params[:item_id])
     redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
   end
 
