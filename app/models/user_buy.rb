@@ -8,11 +8,13 @@ class UserBuy
     validates :prefecture_id, numericality: { other_than: 1 }
     validates :city
     validates :house_number
-    validates :phone_number, format: { with: /\A[0-9]{,11}+\z/i }
+    validates :phone_number, length: { maximum: 11 }
     validates :user_id
     validates :item_id
     validates :token
   end
+
+  validates :phone_number, numericality: {message: "is only number"}
 
   def save
     history = History.create(user_id: user_id, item_id: item_id)

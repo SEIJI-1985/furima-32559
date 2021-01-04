@@ -32,7 +32,7 @@ describe UserBuy do
         expect(@user_buy.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'prefecture_idの情報が1が選択されていたら保存できない' do
-        @user_buy.prefecture_id = '1'
+        @user_buy.prefecture_id = 1
         @user_buy.valid?
         expect(@user_buy.errors.full_messages).to include('Prefecture must be other than 1')
       end
@@ -54,7 +54,17 @@ describe UserBuy do
       it 'phone_numberが半角数字でないと保存できない' do
         @user_buy.phone_number = '１２３４５６７８９１２'
         @user_buy.valid?
-        expect(@user_buy.errors.full_messages).to include('Phone number is invalid')
+        expect(@user_buy.errors.full_messages).to include('Phone number is only number')
+      end
+      it 'phone_numberが11桁以上ある場合は保存できない' do
+        @user_buy.phone_number = '111111111111'
+        @user_buy.valid?
+        expect(@user_buy.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+      end
+      it 'phone_numberがハイフンが含まれている場合は保存できない' do
+        @user_buy.phone_number = '090-1111-1111'
+        @user_buy.valid?
+        expect(@user_buy.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
       it 'tokenが空では保存できない' do
         @user_buy.token = nil
